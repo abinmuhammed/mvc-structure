@@ -1,31 +1,31 @@
-
-const User=require("../model/user")
+const User = require("../model/user");
 
 //For Register Page
 
 const registerView = (req, res) => {
-   res.render("register");
-}
+  res.render("register");
+};
 // for login page view
 
+const loginpage = (req, res) => {
+  res.send("Loginpage");
+};
 
-const loginpage =(req,res)=>{
-    res.send("Loginpage")
-}
-const newuser =async (req,res)=>{
-    console.log(req.body);
-    let user = new User(req.body);
-    res.send("success")
-    let result = await user.save();
-    console.log(result);
+// for registeration of new user
 
-    result = result.toObject();
-    console.log(result);
-}
+const newuser = async (req, res) => {
+  console.log(req.body);
+  let user = new User(req.body);
+  res.send("success");
+  let result = await user.save();
+  console.log(result);
 
-module.exports =  {
-    registerView,
-    loginpage,
-    newuser
-    
+  result = result.toObject();
+  console.log(result);
+};
+
+module.exports = {
+  registerView,
+  loginpage,
+  newuser,
 };
